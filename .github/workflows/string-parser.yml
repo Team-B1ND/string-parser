@@ -14,6 +14,8 @@ jobs:
           body: "<Student>\n릴리즈 노트 작성\n<Teacher>\n릴리즈 노트 작성"
           split: "<Teacher>"
           splitIndex: 0
+          replaceBefore: "<Student>"
+          replaceAfter: ""
           envName: TEST
 
       - name: Output result
