@@ -4,8 +4,31 @@ on:
   workflow_dispatch:
 
 jobs:
-  main:
+  parse-string:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Thank you
-        uses: Team-B1ND/string-parser@main
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run string parser
+        run: node index.js
+        env:
+          body: "<Student>
+릴리즈 노트 작성
+<Teacher>
+릴리즈 노트 작성"
+          split: "<Teacher>"
+          splitIndex: 0
+          envName: TEST
+
+      - name: Output result
+        run: echo "Parsed result: ${{ env.TEST }}"
