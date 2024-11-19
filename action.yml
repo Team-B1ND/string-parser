@@ -1,5 +1,26 @@
 name: "String Parser"
 description: "Easily parse strings in your GitHub Actions workflow."
+
+inputs:
+  body:
+    description: 'The string to be parsed'
+    required: true
+  split:
+    description: 'The string used to split the body'
+    required: false
+  splitIndex:
+    description: 'The index after splitting the string'
+    required: false
+  replaceBefore:
+    description: 'The substring to replace before the split'
+    required: false
+  replaceAfter:
+    description: 'The substring to replace after the split'
+    required: false
+  envName:
+    description: 'The environment variable name to store the result'
+    required: true
+
 runs:
   using: "node20"
   main: "index.js"
