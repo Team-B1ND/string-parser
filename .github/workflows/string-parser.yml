@@ -2,25 +2,6 @@ name: String Parser
 
 on:
   workflow_dispatch:
-  inputs:
-    body:
-      description: 'The string to be parsed'
-      required: true
-    split:
-      description: 'The string used to split the body'
-      required: false
-    splitIndex:
-      description: 'The index after splitting the string'
-      required: false
-    replaceBefore:
-      description: 'The substring to replace before the split'
-      required: false
-    replaceAfter:
-      description: 'The substring to replace after the split'
-      required: false
-    envName:
-      description: 'The environment variable name to store the result'
-      required: true
 
 jobs:
   parse-string:
