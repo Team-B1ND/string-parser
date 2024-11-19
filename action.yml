@@ -1,0 +1,5 @@
+name: "String Parser"
+description: "Easily parse strings in your GitHub Actions workflow."
+runs:
+  using: "node20"
+  main: "index.js"

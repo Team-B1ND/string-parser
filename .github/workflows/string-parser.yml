@@ -1,0 +1,11 @@
+name: String Parser
+
+on:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Thank you
+        uses: Team-B1ND/string-parser@main
