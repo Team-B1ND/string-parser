@@ -28,4 +28,4 @@ jobs:
           envName: TEST
 
       - name: Output result
-        run: echo "Parsed result: ${{ env.TEST }}"
+        run: echo "Parsed result ${{ env.TEST }}"
