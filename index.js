@@ -27,9 +27,8 @@ try {
   }
 
   // replaceBefore 및 replaceAfter 처리
-  if (replaceBefore && replaceAfter) {
-    const regex = new RegExp(replaceBefore, 'g');
-    result = result.replace(regex, replaceAfter);
+  if (replaceBefore && replaceAfter != null) {
+    result = result.replace(replaceBefore, replaceAfter);
   }
 
   // 결과를 `GITHUB_ENV`에 저장
