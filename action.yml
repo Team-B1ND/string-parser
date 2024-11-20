@@ -17,6 +17,12 @@ inputs:
   replaceAfter:
     description: 'The substring to replace after the split'
     required: false
+  substringStart:
+    description: 'The start index for the substring'
+    required: false
+  substringEnd:
+    description: 'The end index for the substring'
+    required: false
   envName:
     description: 'The environment variable name to store the result'
     required: true

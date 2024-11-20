@@ -7,6 +7,8 @@ try {
   const splitIndex = splitStr ? parseInt(core.getInput('splitIndex', { required: true }), 10) : null;
   const replaceBefore = core.getInput('replaceBefore', { required: false });
   const replaceAfter = core.getInput('replaceAfter', { required: false });
+  const substringStart = core.getInput('substringStart', { required: false });
+  const substringEnd = core.getInput('substringEnd', { required: false });
   const envName = core.getInput('envName', { required: true });
 
   // splitStr이 있는 경우, splitIndex가 존재해야 함
@@ -29,6 +31,22 @@ try {
   // replaceBefore 및 replaceAfter 처리
   if (replaceBefore && replaceAfter != null) {
     result = result.replace(replaceBefore, replaceAfter);
+  }
+
+  // substring 처리
+  if (substringStart !== undefined || substringEnd !== undefined) {
+    const start = substringStart ? parseInt(substringStart, 10) : 0;
+    const end = substringEnd ? parseInt(substringEnd, 10) : result.length;
+
+    if (isNaN(start) || isNaN(end)) {
+      throw new Error('substringStart와 substringEnd는 숫자여야 합니다.');
+    }
+
+    if (start < 0 || end > result.length || start > end) {
+      throw new Error(`Invalid substring range: start=${start}, end=${end}.`);
+    }
+
+    result = result.substring(start, end);
   }
 
   // 결과를 `GITHUB_ENV`에 저장
